@@ -14,6 +14,7 @@ import com.vsrmsolutions.igt.idgtask.model.GameDetail;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.Currency;
 import java.util.Locale;
 
 /**
@@ -28,11 +29,13 @@ public class GameDetailFragment extends Fragment {
 	 * represents.
 	 */
 	public static final String ARG_ITEM_ID = "item_id";
+	public static final String ARG_CURRENCY_ID = "currency_id";
 
 	/**
 	 * The dummy content this fragment is presenting.
 	 */
 	private GameDetail mItem;
+	private String mCurrency;
 
 	/**
 	 * Mandatory empty constructor for the fragment manager to instantiate the
@@ -50,6 +53,7 @@ public class GameDetailFragment extends Fragment {
 			// arguments. In a real-world scenario, use a Loader
 			// to load content from a content provider.
 			mItem = new Gson().fromJson(getArguments().getString(ARG_ITEM_ID), GameDetail.class);
+			mCurrency = getArguments().getString(ARG_CURRENCY_ID);
 
 			Activity activity = this.getActivity();
 			/*CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
@@ -67,7 +71,9 @@ public class GameDetailFragment extends Fragment {
 		// Show the dummy content as text in a TextView.
 		if (mItem != null) {
 			((TextView) rootView.findViewById(R.id.game_name)).setText(mItem.getName());
-			NumberFormat format = NumberFormat.getCurrencyInstance();
+			Currency currency = Currency.getInstance(mCurrency);
+			NumberFormat format = NumberFormat.getCurrencyInstance(Locale.getDefault());
+			format.setCurrency(currency);
 			((TextView) rootView.findViewById(R.id.game_jackpot)).setText(format.format(mItem.getJackpot() / 100));
 //			String date = DateUtils.formatDateTime(getContext(), mItem.getDate().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NUMERIC_DATE | DateUtils.FORMAT_SHOW_TIME);
 //			String time = DateFormat.getTimeFormat(getContext()).format(mItem.getDate());

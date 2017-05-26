@@ -18,6 +18,8 @@ import com.google.gson.Gson;
 import com.vsrmsolutions.igt.idgtask.model.PlayerInfo;
 
 import java.text.NumberFormat;
+import java.util.Currency;
+import java.util.Locale;
 
 /**
  * An activity representing a single Game detail screen. This
@@ -76,8 +78,8 @@ public class GameDetailActivity extends AppCompatActivity {
 			// Create the detail fragment and add it to the activity
 			// using a fragment transaction.
 			Bundle arguments = new Bundle();
-			arguments.putString(GameDetailFragment.ARG_ITEM_ID,
-					getIntent().getStringExtra(GameDetailFragment.ARG_ITEM_ID));
+			arguments.putString(GameDetailFragment.ARG_ITEM_ID, getIntent().getStringExtra(GameDetailFragment.ARG_ITEM_ID));
+			arguments.putString(GameDetailFragment.ARG_CURRENCY_ID, getIntent().getStringExtra(GameDetailFragment.ARG_CURRENCY_ID));
 			GameDetailFragment fragment = new GameDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()

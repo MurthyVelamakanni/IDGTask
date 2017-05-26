@@ -149,6 +149,7 @@ public class GameListActivity extends AppCompatActivity {
 					Gson gson = new Gson();
 					String json = gson.toJson(gameDetail);
 					intent.putExtra(GameDetailFragment.ARG_ITEM_ID, json);
+					intent.putExtra(GameDetailFragment.ARG_CURRENCY_ID, gameData.getCurrency());
 					Gson profileGson = new Gson();
 					String profileJson = profileGson.toJson(playerInfo);
 					intent.putExtra(GameDetailActivity.ARG_PROFILE, profileJson);

@@ -74,7 +74,7 @@ public class GameDetailFragment extends Fragment {
 			Currency currency = Currency.getInstance(mCurrency);
 			NumberFormat format = NumberFormat.getCurrencyInstance(Locale.getDefault());
 			format.setCurrency(currency);
-			((TextView) rootView.findViewById(R.id.game_jackpot)).setText(format.format(mItem.getJackpot() / 100));
+			((TextView) rootView.findViewById(R.id.game_jackpot)).setText(format.format(mItem.getJackpot() / Math.pow(10, currency.getDefaultFractionDigits())));
 //			String date = DateUtils.formatDateTime(getContext(), mItem.getDate().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NUMERIC_DATE | DateUtils.FORMAT_SHOW_TIME);
 //			String time = DateFormat.getTimeFormat(getContext()).format(mItem.getDate());
 			String bestDateTimePattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), "EyMMMdhms");

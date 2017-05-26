@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                                        xmlns:tools="http://schemas.android.com/tools"
+                                        android:id="@+id/game_list"
+                                        android:name="com.vsrmsolutions.igt.idgtask.GameListFragment"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/fab_margin"
+                                        android:layout_marginRight="@dimen/fab_margin"
+                                        app:layoutManager="LinearLayoutManager"
+                                        tools:context="com.vsrmsolutions.igt.idgtask.GameListActivity"
+                                        tools:listitem="@layout/game_list_content"/>
+

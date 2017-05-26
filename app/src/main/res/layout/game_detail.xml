@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center"
+              android:gravity="center_vertical|center_horizontal"
+              android:orientation="vertical">
+
+    <TextView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/game_name"
+        style="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Jumeli"
+        tools:context="com.vsrmsolutions.igt.idgtask.GameDetailFragment"/>
+
+    <TextView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/game_jackpot"
+        style="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Jumeli"
+        tools:context="com.vsrmsolutions.igt.idgtask.GameDetailFragment"/>
+
+    <TextView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/game_date"
+        style="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Jumeli"
+        tools:context="com.vsrmsolutions.igt.idgtask.GameDetailFragment"/>
+
+</LinearLayout>

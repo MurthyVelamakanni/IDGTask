@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IDGTask</string>
+    <string name="title_game_detail">Game Detail</string>
+    <string name="no_data_available">No data available</string>
+    <string name="loading">Loading please wait...</string>
+    <string name="failed_to_fetch_data">Failed to fetch data</string>
+</resources>

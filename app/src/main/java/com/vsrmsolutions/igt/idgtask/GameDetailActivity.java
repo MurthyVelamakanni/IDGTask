@@ -45,8 +45,13 @@ public class GameDetailActivity extends AppCompatActivity {
 		String date = DateUtils.formatDateTime(this, playerInfo.getLastLogindate().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NUMERIC_DATE | DateUtils.FORMAT_SHOW_TIME);
 		loggedIn.setText(date);
 		TextView balance = (TextView) findViewById(R.id.balance);
-		NumberFormat format = NumberFormat.getCurrencyInstance();
-		balance.setText(format.format(playerInfo.getBalance() / 100));
+
+		NumberFormat format = NumberFormat.getCurrencyInstance(Locale.getDefault());
+		String currencyStr = getIntent().getStringExtra(GameDetailFragment.ARG_CURRENCY_ID);
+		Currency currency = Currency.getInstance(currencyStr);
+		format.setCurrency(currency);
+		balance.setText(format.format(playerInfo.getBalance() / Math.pow(10, currency.getDefaultFractionDigits())));
+
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
@@ -79,7 +84,7 @@ public class GameDetailActivity extends AppCompatActivity {
 			// using a fragment transaction.
 			Bundle arguments = new Bundle();
 			arguments.putString(GameDetailFragment.ARG_ITEM_ID, getIntent().getStringExtra(GameDetailFragment.ARG_ITEM_ID));
-			arguments.putString(GameDetailFragment.ARG_CURRENCY_ID, getIntent().getStringExtra(GameDetailFragment.ARG_CURRENCY_ID));
+			arguments.putString(GameDetailFragment.ARG_CURRENCY_ID, currencyStr);
 			GameDetailFragment fragment = new GameDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()
